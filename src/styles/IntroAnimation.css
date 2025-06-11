@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.netflix-inspired-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: black;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  z-index: 1000;
+}
+
+.animated-background {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(ellipse at center, #0e0e0e 0%, #000000 100%);
+  animation: bgMotion 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes bgMotion {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.15) rotate(0.3deg); }
+}
+
+.fog-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+  z-index: 2;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 3;
+  color: #e0e0e0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeIn 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.intro-title {
+  font-size: 52px;
+  letter-spacing: 6px;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 12px #00fff7, 0 0 4px #000;
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.intro-title::before,
+.intro-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.intro-title::before {
+  color: rgba(0, 255, 247, 0.5);
+  animation: glitch-effect 3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(-2px, -2px);
+}
+
+.intro-title::after {
+  color: rgba(255, 255, 255, 0.5);
+  animation: glitch-effect 2s infinite;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  transform: translate(2px, 2px);
+}
+
+@keyframes glitch-effect {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.intro-subtitle {
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #aaaaaa;
+  margin: 14px 0 36px;
+}
+
+.intro-button {
+  font-size: 15px;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #00fff7;
+  border-radius: 6px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: background 0.3s ease;
+}
+
+.intro-button:hover {
+  color: #00fff7;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,255,247,0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(0,255,247,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,255,247,0); }
+}
+
+.intro-timer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #00fff7;
+  font-size: 60px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  z-index: 3;
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  animation: fadeIn 2s ease-out forwards, timerGlitch 4s infinite;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.intro-timer::before {
+  content: 'TIME ELAPSED:';
+  color: #aaaaaa;
+  font-size: 40px;
+  animation: timerGlitch 4s infinite reverse;
+  white-space: nowrap;
+}
+
+@keyframes timerGlitch {
+  0% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  2% {
+    transform: translate(-1px, 1px);
+    text-shadow: 2px 2px 8px rgba(0, 255, 247, 0.5);
+  }
+  4% {
+    transform: translate(1px, -1px);
+    text-shadow: -2px -2px 8px rgba(0, 255, 247, 0.5);
+  }
+  6% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  8% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  10% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  12% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  14% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  16% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  18% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  20% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  22% {
+    transform: translate(-1px, 1px);
+    text-shadow: 2px 2px 8px rgba(0, 255, 247, 0.5);
+  }
+  24% {
+    transform: translate(1px, -1px);
+    text-shadow: -2px -2px 8px rgba(0, 255, 247, 0.5);
+  }
+  26% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: 0 0 8px rgba(0, 255, 247, 0.5);
+  }
+}
