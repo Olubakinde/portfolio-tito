@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* ─── ROOT & LAYOUT ───────────────────────────────────────── */
+.hero-root {
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+  color: var(--text-color);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── HEADER ──────────────────────────────────────────────── */
+.hero-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 44px 68px;
+}
+
+.hero-avatar {
+  width: 110px; height: 110px;
+  background: #e6f2ff;
+  color: #1a73e8;
+  font-size: 30px; font-weight: bold;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 36px rgba(0, 0, 0, 0.1);
+}
+
+.hero-nav a {
+  position: relative; margin-left: 32px;
+  text-decoration: none; color: #111;
+  font-weight: 500; font-size: 30px;
+  transition: color 0.3s ease;
+}
+.hero-nav a::after {
+  content: ''; position: absolute; left: 0; bottom: -6px;
+  width: 100%; height: 3px;
+  background-color: #1a73e8;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+  border-radius: 2px;
+}
+.hero-nav a:hover { color: #1a73e8; }
+.hero-nav a:hover::after { transform: scaleX(1); }
+
+/* ─── TITLE & TYPING ─────────────────────────────────────── */
+.hero-title {
+  font-size: clamp(13rem, 19vw, 8rem);
+  font-weight: 500; display: flex; align-items: center;
+  white-space: nowrap; margin: 0 0 10px 280px;
+}
+
+.typewriter-text {
+  overflow: hidden; white-space: nowrap;
+  width: 0; animation: typing 2.5s steps(14,end) 0.5s forwards;
+}
+.block-cursor {
+  width: 2px; background: #111;
+  margin-left: 5px; animation: block-blink 1.2s steps(1) infinite;
+}
+
+/* ─── TAGLINE & ACCENT ──────────────────────────────────── */
+.hero-tagline {
+  font-size: 2.3rem; color: #555;
+  margin: 8px 0 0 300px;
+}
+
+.hero-accent-bar {
+  height: 5px; width: 120px;
+  background-color: #1a73e8;
+  border-radius: 2px;
+  margin: 8px 0 0 300px;
+}
+
+/* ─── DESCRIPTION ───────────────────────────────────────── */
+.hero-description {
+  margin: 24px 300px 0 1100px;
+  max-width: 1200px;
+  font-size: 1.8rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+.hero-description a {
+  color: #1a73e8; text-decoration: underline;
+}
+
+.hero-description-accent {
+  display: block;
+  margin-top: 16px;
+  font-size: 1.9rem;
+  color: #000;
+  line-height: 1.8;
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 15ch; }
+}
+@keyframes block-blink {
+  0%,100% { opacity: 0.7; }
+  50%     { opacity: 0; }
+}
+
+/* ─── RESPONSIVE DESIGN ──────────────────────────────────── */
+
+/* Tablet breakpoint */
+@media (min-width: 600px) {
+  .hero-header {
+    padding: 32px 40px;
+  }
+  
+  .hero-avatar {
+    width: 80px; height: 80px;
+    font-size: 24px;
+  }
+  
+  .hero-nav a {
+    margin-left: 24px;
+    font-size: 24px;
+  }
+  
+  .hero-title {
+    font-size: clamp(6rem, 10vw, 8rem);
+    margin: 0 0 10px 50px;
+  }
+  
+  .hero-tagline {
+    font-size: 1.8rem;
+    margin: 8px 0 0 180px;
+  }
+  
+  .hero-accent-bar {
+    margin: 10px 0 0 180px;
+    width: 100px;
+  }
+  
+  .hero-description {
+    margin: 34px 150px 0 300px;
+    font-size: 2rem;
+  }
+  
+  .hero-description-accent {
+    font-size: 1.7rem;
+  }
+}
+/* 
+@media (max-width: 768px) {
+  .hero-header {
+    padding: 32px 40px;
+  }
+  
+  .hero-avatar {
+    width: 80px; height: 80px;
+    font-size: 24px;
+  }
+  
+  .hero-nav a {
+    margin-left: 24px;
+    font-size: 24px;
+  }
+  
+  .hero-title {
+    font-size: clamp(6rem, 10vw, 8rem);
+    margin: 0 0 10px 50px;
+  }
+  
+  .hero-tagline {
+    font-size: 1.8rem;
+    margin: 8px 0 0 160px;
+  }
+  
+  .hero-accent-bar {
+    margin: 10px 0 0 160px;
+    width: 100px;
+  }
+  
+  .hero-description {
+    margin: 34px 150px 0 150px;
+    font-size: 1.6rem;
+  }
+  
+  .hero-description-accent {
+    font-size: 1.7rem;
+  }
+} */

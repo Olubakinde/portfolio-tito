@@ -1,8 +1,14 @@
 :root {
   --primary-color: #2a2a2a;
   --accent-color: #646cff;
-  --text-color: #ffffff;
-  --background-color: #1a1a1a;
+  --text-color: #111;
+  --background-color: #f5f6f7;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 .app {

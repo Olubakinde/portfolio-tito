@@ -1,0 +1,100 @@
+.hero-cli {
+  margin: 100px auto 0;
+  width: calc(100% - 600px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 250px 200px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+}
+
+.term-header {
+  background: #e8e8e8;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+}
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.term-body {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 18px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.term-line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.term-prompt {
+  color: #ffffff;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.term-string {
+  color: #e5c07b;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.term-error {
+  color: #e95678;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.term-input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  flex: 1;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* ─── TABLETS & SMALLER ───────────────────────────────── */
+@media (min-width: 768px) {
+  .hero-cli {
+    width: calc(85% - 40px);
+    margin: 60px auto 40px;
+    border-radius: 16px;
+  }
+  .term-header {
+    padding: 12px;
+  }
+  .circle {
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+  }
+  .term-body {
+    padding: 12px;
+    font-size: 1.2rem;
+    max-height: 60vh;
+  }
+  .term-line {
+    flex-wrap: wrap;
+  }
+  .term-prompt {
+    white-space: normal;
+    margin-bottom: 4px;
+  }
+}
