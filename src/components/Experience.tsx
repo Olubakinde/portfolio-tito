@@ -1,5 +1,19 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './Experience.css';
+
+interface Experience {
+  logo: string;
+  company: string;
+  role: string;
+  link?: string;
+  period: string;
+  description: string;
+}
+
+interface ExperienceCardProps {
+  exp: Experience;
+  side: string;
+}
 
 const experiences = [
   {
@@ -8,7 +22,7 @@ const experiences = [
     role: 'Software Engineer & Web Designer ',
     link: 'https://www.pinterest.com/',
     period: 'March 2025 – Present',
-    description: 'Conducted user research to inform and engineer a sleek, mobile-first front end with HTML, CSS, JavaScript, and WordPress—creating an accessible, interactive platform that showcases research projects and attracts top student talent to the startup’s research group.'
+    description: 'Conducted user research to inform and engineer a sleek, mobile-first front end with HTML, CSS, JavaScript, and WordPress—creating an accessible, interactive platform that showcases research projects and attracts top student talent to the startup\'s research group.'
   },
   {
     logo: 'https://th.bing.com/th/id/OIP.yKW0vY2oXU2fll6NLaYvDgHaHa?w=156&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
@@ -33,8 +47,8 @@ const experiences = [
   }
 ];
 
-const ExperienceCard = ({ exp, side, idx }) => {
-  const ref = useRef();
+const ExperienceCard = ({ exp, side }: ExperienceCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -42,12 +56,16 @@ const ExperienceCard = ({ exp, side, idx }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          obs.unobserve(ref.current);
+          if (ref.current) {
+            obs.unobserve(ref.current);
+          }
         }
       },
       { threshold: 0.1 }
     );
-    obs.observe(ref.current);
+    if (ref.current) {
+      obs.observe(ref.current);
+    }
     return () => obs.disconnect();
   }, []);
 
@@ -97,7 +115,6 @@ const Experience = () => (
         <ExperienceCard
           key={i}
           exp={exp}
-          idx={i}
           side={i % 2 === 0 ? 'left' : 'right'}
         />
       ))}
